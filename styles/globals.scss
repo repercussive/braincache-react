@@ -9,15 +9,16 @@
 }
 
 $accent-color: #5ea6ac;
+$background-color: #1a1b1b;
 
 :root {
-  --background-color: #181818;
+  --background-color: #{$background-color};
   --accent-color: #{$accent-color};
   --text-color-accent: #{color.scale($accent-color, $lightness: 40%, $saturation: 25%)};
   --info-color: #eee;
   --button-border-color: #{color.scale($accent-color, $saturation: -80%)};
   --button-border-color-highlight: #{color.scale($accent-color, $lightness: 75%)};
-  --button-background-color: #{color.scale($accent-color, $lightness: -75%, $saturation: -65%)};
+  --button-background-color: #{color.scale($background-color, $lightness: 6%)};
   --empty-button-border-color: #{color.scale($accent-color, $lightness: -40%, $saturation: -80%)};
   --logo-accent-color: #ffc0cb;
 
