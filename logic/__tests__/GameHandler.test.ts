@@ -45,6 +45,8 @@ describe('generateLevel()', () => {
     options = options.sort()
 
     expect(options).toEqual(expectedOptions)
+
+    expect(game.generateLevel().options.length).toEqual(3)
   })
 })
 

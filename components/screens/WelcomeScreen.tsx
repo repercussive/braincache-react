@@ -1,3 +1,4 @@
+import screenHandler from '@/logic/app/ScreenHandler'
 import StyledContainer from 'components/primitives/StyledContainer'
 import ViewportCentered from 'components/primitives/ViewportCentered'
 import Button from 'components/primitives/Button'
@@ -5,8 +6,10 @@ import Flex from 'components/primitives/Flex'
 import Spacer from 'components/primitives/Spacer'
 
 const WelcomeScreen = () => {
+  const { setScreen } = screenHandler
+
   return (
-    <ViewportCentered sx={{ top: [null, '40vh'] }}>
+    <ViewportCentered>
       <MainHeading />
       <Spacer mb={8} />
       <StyledContainer sx={{ textAlign: 'center' }} color="info">
@@ -16,8 +19,8 @@ const WelcomeScreen = () => {
       <HighScoreSection />
       <Spacer mb={8} />
       <Rules />
-      <Spacer mb={8} />
-      <Button>Start</Button>
+      <Spacer mb={10} />
+      <Button onClick={() => setScreen('game')}>Start</Button>
     </ViewportCentered>
   )
 }
