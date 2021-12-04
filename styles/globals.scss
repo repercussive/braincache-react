@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @font-face {
   font-family: 'Work Sans';
   src: url('/font/WorkSans-Subset.woff2') format('woff2');
@@ -6,13 +8,37 @@
   font-display: swap;
 }
 
+$accent-color: #5ea6ac;
+
+:root {
+  --accent-color: #{$accent-color};
+  --text-color-accent: #{color.scale($accent-color, $lightness: 40%, $saturation: 25%)};
+  --info-color: #eee;
+  --button-border-color: #777777;
+  --button-border-color-highlight: #bebebe;
+  --button-background-color: #222;
+  --logo-accent-color: #ffc0cb;
+}
+
 html,
 body {
-  padding: 0;
+  padding: 0.5rem;
   margin: 0;
   font-family: 'Work Sans', sans-serif;
   background-color: #181818;
   color: white;
+}
+
+p, ul, h1, h2, h3, h4, h5, h6 { 
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+ul {
+  padding-left: 1rem;
 }
 
 * {

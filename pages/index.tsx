@@ -1,9 +1,7 @@
+import WelcomeScreen from 'components/screens/Welcome'
+
 const Home = () => {
-  return (
-    <div>
-      Hello world!
-    </div>
-  )
+  return <WelcomeScreen />
 }
 
 export default Home
