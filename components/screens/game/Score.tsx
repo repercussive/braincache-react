@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import { GameContext } from 'components/screens/GameScreen'
-import Flex from 'components/primitives/Flex'
+import Flex from 'components/modular/Flex'
 import sleep from '@/logic/util/sleep'
 
 const enterAnimation = 'enter forwards 400ms'

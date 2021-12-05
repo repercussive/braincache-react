@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef, forwardRef, PropsWithChildren } from 'react'
-import Flex from 'components/primitives/Flex'
+import Flex from 'components/modular/Flex'
 import theme from '@/styles/theme'
 
 export type ButtonProps = PropsWithChildren<ComponentPropsWithoutRef<'button'>>

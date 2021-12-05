@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite'
 import { GameContext } from 'components/screens/GameScreen'
 import WordButton from 'components/screens/game/WordButton'
 import sleep from '@/logic/util/sleep'
-import Flex from 'components/primitives/Flex'
+import Flex from 'components/modular/Flex'
 import screenHandler from '@/logic/app/ScreenHandler'
 
 const WordOptions = observer(() => {

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Button, { ButtonProps } from 'components/primitives/Button'
+import Button, { ButtonProps } from 'components/modular/Button'
 import theme from '@/styles/theme'
 import { defaultPseudo } from '@/styles/util'
 

@@ -1,12 +1,12 @@
 import screenHandler from '@/logic/app/ScreenHandler'
 import highScoreHandler from '@/logic/app/HighScoreHandler'
-import StyledContainer from 'components/primitives/StyledContainer'
-import ViewportCentered from 'components/primitives/ViewportCentered'
-import Button from 'components/primitives/Button'
-import Flex from 'components/primitives/Flex'
-import Spacer from 'components/primitives/Spacer'
-import FadeIn from 'components/primitives/FadeIn'
-import ScoreDisplay from 'components/primitives/ScoreDisplay'
+import StyledContainer from 'components/modular/StyledContainer'
+import ViewportCentered from 'components/modular/ViewportCentered'
+import Button from 'components/modular/Button'
+import Flex from 'components/modular/Flex'
+import Spacer from 'components/modular/Spacer'
+import FadeIn from 'components/modular/FadeIn'
+import ScoreDisplay from 'components/modular/ScoreDisplay'
 
 const WelcomeScreen = () => {
   const { setScreen } = screenHandler

@@ -5,9 +5,9 @@ import Score from 'components/screens/game/Score'
 import Lives from 'components/screens/game/Lives'
 import WordOptions from 'components/screens/game/WordOptions'
 import StatusText from 'components/screens/game/StatusText'
-import ViewportCentered from 'components/primitives/ViewportCentered'
-import Spacer from 'components/primitives/Spacer'
-import FadeIn from 'components/primitives/FadeIn'
+import ViewportCentered from 'components/modular/ViewportCentered'
+import Spacer from 'components/modular/Spacer'
+import FadeIn from 'components/modular/FadeIn'
 
 export const GameContext = createContext<GameHandler>(null!)
 

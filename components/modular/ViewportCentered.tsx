@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Flex from 'components/primitives/Flex'
+import Flex from 'components/modular/Flex'
 
 const ViewportCentered: FC<{ className?: string }> = ({ className, children }) => {
   return (
