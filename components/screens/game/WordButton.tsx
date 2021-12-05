@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import Button, { ButtonProps } from 'components/primitives/Button'
 import theme from '@/styles/theme'
+import { defaultPseudo } from '@/styles/util'
 
 type WordButtonProps = {
   'data-animation': 'enter' | 'exit',
@@ -38,6 +39,28 @@ const WordButton: FC<ButtonProps & WordButtonProps> = (props) => {
         },
         '&[data-variant="incorrect"]': {
           animation: 'shakeX forwards 500ms'
+        },
+        '&[data-variant="correct"]': {
+          '@keyframes wipe': {
+            '0%': { right: '100%', opacity: 0, backgroundColor: 'white' },
+            '10%': { opacity: 0 },
+            '20%': { opacity: 0.75 },
+            '100%': { right: '2px', opacity: 1, backgroundColor: 'correctWordBackground' }
+          },
+          '@keyframes turn-green': {
+            '0%': { backgroundColor: 'buttonBackground' },
+            '100%': { backgroundColor: 'correctWordBackground' }
+          },
+          '.front': {
+            position: 'relative',
+            animation: 'turn-green forwards 450ms ease-in',
+            '&::after': {
+              ...defaultPseudo,
+              inset: '2px',
+              borderRadius: `calc(${theme.radii.default} - 3px)`,
+              animation: 'wipe forwards 450ms',
+            }
+          }
         },
         '--border-color': props.children ? variantStyles?.border : theme.colors.emptyButtonBorder,
         '--background-color': variantStyles?.background
