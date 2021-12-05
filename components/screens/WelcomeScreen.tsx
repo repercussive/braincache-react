@@ -1,27 +1,32 @@
 import screenHandler from '@/logic/app/ScreenHandler'
+import highScoreHandler from '@/logic/app/HighScoreHandler'
 import StyledContainer from 'components/primitives/StyledContainer'
 import ViewportCentered from 'components/primitives/ViewportCentered'
 import Button from 'components/primitives/Button'
 import Flex from 'components/primitives/Flex'
 import Spacer from 'components/primitives/Spacer'
+import FadeIn from 'components/primitives/FadeIn'
+import ScoreDisplay from 'components/primitives/ScoreDisplay'
 
 const WelcomeScreen = () => {
   const { setScreen } = screenHandler
 
   return (
-    <ViewportCentered>
-      <MainHeading />
-      <Spacer mb={8} />
-      <StyledContainer sx={{ textAlign: 'center' }} color="info">
-        <p>How many words can you hold in your head?</p>
-      </StyledContainer>
-      <Spacer mb={8} />
-      <HighScoreSection />
-      <Spacer mb={8} />
-      <Rules />
-      <Spacer mb={10} />
-      <Button onClick={() => setScreen('game')}>Start</Button>
-    </ViewportCentered>
+    <FadeIn>
+      <ViewportCentered>
+        <MainHeading />
+        <Spacer mb={8} />
+        <StyledContainer sx={{ textAlign: 'center' }} color="info">
+          <p>How many words can you hold in your head?</p>
+        </StyledContainer>
+        <Spacer mb={8} />
+        <HighScoreSection />
+        <Spacer mb={8} />
+        <Rules />
+        <Spacer mb={10} />
+        <Button onClick={() => setScreen('game')}>Start</Button>
+      </ViewportCentered>
+    </FadeIn>
   )
 }
 
@@ -38,12 +43,12 @@ const MainHeading = () => {
 }
 
 const HighScoreSection = () => {
+  const { highScore } = highScoreHandler
+
   return (
     <Flex center asSpan>
       Your best score:{' '}
-      <span sx={{ ml: 5, px: 8, py: 5, bg: 'accent', borderRadius: 'default' }} >
-        ??
-      </span>
+      <ScoreDisplay score={highScore} />
     </Flex>
   )
 }

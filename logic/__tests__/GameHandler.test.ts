@@ -1,4 +1,5 @@
 import GameHandler from '@/logic/app/GameHandler'
+import allWords from '@/assets/words'
 
 let game: GameHandler
 
@@ -77,5 +78,32 @@ describe('submitAnswer()', () => {
     game.submitAnswer(getIncorrectAnswer(game.generateLevel()))
     game.submitAnswer(getIncorrectAnswer(game.generateLevel()))
     expect(game.lives).toEqual(1)
+  })
+})
+
+describe('checkHasGameEnded()', () => {
+  test('when there are still lives remaining, it returns false', () => {
+    game.submitAnswer(game.generateLevel().correctOption)
+    game.submitAnswer(getIncorrectAnswer(game.generateLevel()))
+    game.submitAnswer(getIncorrectAnswer(game.generateLevel()))
+
+    expect(game.checkHasGameEnded()).toEqual(false)
+  })
+
+  test('when there no lives remaining, it returns true', () => {
+    game.submitAnswer(game.generateLevel().correctOption)
+    for (let i = 0; i < 3; i++) {
+      game.submitAnswer(getIncorrectAnswer(game.generateLevel()))
+    }
+
+    expect(game.checkHasGameEnded()).toEqual(true)
+  })
+
+  test('when there are no unseen words remaining, it returns true', () => {
+    for (let i = 0; i < allWords.length; i++) {
+      game.submitAnswer(game.generateLevel().correctOption)
+    }
+
+    expect(game.checkHasGameEnded()).toEqual(true)
   })
 })

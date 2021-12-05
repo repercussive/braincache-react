@@ -1,9 +1,10 @@
 import { makeAutoObservable } from 'mobx'
 import allWords from '@/assets/words'
+import highScoreHandler from '@/logic/app/HighScoreHandler'
 import getRandomArrayItem from '@/logic/util/getRandomArrayItem'
 import shuffleArray from '@/logic/util/shuffleArray'
 
-export type GameStatus = 'waiting' | 'correct-answer' | 'incorrect-answer' | 'lose' | 'win'
+export type GameStatus = 'waiting' | 'correct-answer' | 'incorrect-answer' | 'ended'
 
 type LevelData = {
   options: string[]
@@ -50,6 +51,14 @@ class GameHandler {
     }
   }
 
+  public checkHasGameEnded = () => {
+    if (this.lives === 0 || this.unseenWords.length === 0) {
+      this.handleGameEnd()
+      return true
+    }
+    return false
+  }
+
   private pickRandomUnseenWord = () => {
     const newWord = getRandomArrayItem(this.unseenWords)
     this.unseenWords = this.unseenWords.filter((word) => word !== newWord)
@@ -71,9 +80,9 @@ class GameHandler {
     this.lives -= 1
   }
 
-  private handleGameEnd = (options: { win: boolean } = { win: false }) => {
-    this.status = options.win ? 'win' : 'lose'
-    // todo: some stuff
+  private handleGameEnd = () => {
+    this.status = 'ended'
+    highScoreHandler.setMostRecentScore(this.score)
   }
 }
 

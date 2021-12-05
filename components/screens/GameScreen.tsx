@@ -7,6 +7,7 @@ import WordOptions from 'components/screens/game/WordOptions'
 import StatusText from 'components/screens/game/StatusText'
 import ViewportCentered from 'components/primitives/ViewportCentered'
 import Spacer from 'components/primitives/Spacer'
+import FadeIn from 'components/primitives/FadeIn'
 
 export const GameContext = createContext<GameHandler>(null!)
 
@@ -15,15 +16,17 @@ const GameScreen = observer(() => {
 
   return (
     <GameContext.Provider value={game}>
-      <ViewportCentered>
-        <Score />
-        <Spacer mb={12} />
-        <Lives />
-        <Spacer mb={8} />
-        <WordOptions />
-        <Spacer mb={12} />
-        <StatusText />
-      </ViewportCentered>
+      <FadeIn>
+        <ViewportCentered>
+          <Score />
+          <Spacer mb={12} />
+          <Lives />
+          <Spacer mb={8} />
+          <WordOptions />
+          <Spacer mb={12} />
+          <StatusText />
+        </ViewportCentered>
+      </FadeIn>
     </GameContext.Provider>
   )
 })

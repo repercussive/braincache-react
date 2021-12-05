@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import { GameContext } from 'components/screens/GameScreen'
+import WordButton from 'components/screens/game/WordButton'
 import sleep from '@/logic/util/sleep'
 import Flex from 'components/primitives/Flex'
-import WordButton from 'components/screens/game/WordButton'
+import screenHandler from '@/logic/app/ScreenHandler'
 
 const WordOptions = observer(() => {
   const game = useContext(GameContext)
-  const { levelData, status, submitAnswer, generateLevel } = game
+  const { levelData, status, submitAnswer, generateLevel, checkHasGameEnded } = game
   const [buttonAnimation, setButtonAnimation] = useState<'enter' | 'exit'>('enter')
   const [lastSelectedWord, setLastSelectedWord] = useState('')
 
@@ -39,8 +40,13 @@ const WordOptions = observer(() => {
     await sleep(game.status === 'incorrect-answer' ? 1600 : 750)
     setButtonAnimation('exit')
     await sleep(400)
-    generateLevel()
-    setButtonAnimation('enter')
+    
+    if (checkHasGameEnded()) {
+      screenHandler.setScreen('game-end')
+    } else {
+      generateLevel()
+      setButtonAnimation('enter')
+    }
   }
 
   function getButtonVariant(word: string | null) {

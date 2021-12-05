@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 
-type AppScreen = 'welcome' | 'game' | 'game-end'
+export type AppScreen = 'welcome' | 'game' | 'game-end'
 
 const screenHandler = new class {
   public screen: AppScreen = 'welcome'

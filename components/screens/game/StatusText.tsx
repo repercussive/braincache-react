@@ -9,8 +9,7 @@ const textMap: Record<GameStatus, string> = {
   'waiting': 'Select the new word',
   'correct-answer': 'Nice!',
   'incorrect-answer': `You've seen that before.`,
-  'lose': 'Out of lives!',
-  'win': `That's a wrap!`
+  'ended': '(none)'
 }
 
 const StatusText = observer(() => {
