@@ -36,7 +36,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(props,
           transition: 'all 70ms'
         },
         '&:hover, &:active': {
-          '--border-color': theme.colors.buttonBorderHighlight,
+          '&:not(:disabled)': {
+            '--border-color': [undefined, theme.colors.buttonBorderHighlight],
+          }
         },
         '&:active': {
           top: '3px',

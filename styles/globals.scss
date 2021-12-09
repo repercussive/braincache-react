@@ -23,16 +23,16 @@ $background-color: #1a1b1b;
   --logo-accent-color: #ffc0cb;
 
   --life-color: #ff93a5;
-  --life-used-color: rgb(82, 82, 82);
+  --life-used-color: #525252;
 
   --correct-word-border-color: #72d672;
   --correct-word-background-color: #244224;
   
   --incorrect-word-border-color: #e08383;
-  --incorrect-word-background-color: hsl(0, 40%, 20%);
+  --incorrect-word-background-color: #471f1f;
 
   --missed-word-border-color: #9797fd;
-  --missed-word-background-color: hsl(240, 40%, 30%);
+  --missed-word-background-color: #2e2e6b;
 }
 
 html,
@@ -54,6 +54,10 @@ h1, h2, h3, h4, h5, h6 {
 
 ul {
   padding-left: 1rem;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
 }
 
 * {
