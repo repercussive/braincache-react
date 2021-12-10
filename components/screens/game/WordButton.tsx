@@ -10,16 +10,16 @@ type WordButtonProps = {
 
 const variantMap = {
   correct: {
-    border: theme.colors.correctWordBorder,
-    background: theme.colors.correctWordBackground
+    border: theme.colors.wordCorrectBorder,
+    background: theme.colors.wordCorrectBg
   },
   incorrect: {
-    border: theme.colors.incorrectWordBorder,
-    background: theme.colors.incorrectWordBackground
+    border: theme.colors.wordIncorrectBorder,
+    background: theme.colors.wordIncorrectBg
   },
   missed: {
-    border: theme.colors.missedWordBorder,
-    background: theme.colors.missedWordBackground
+    border: theme.colors.wordMissedBorder,
+    background: theme.colors.wordMissedBg
   }
 }
 
@@ -45,11 +45,11 @@ const WordButton: FC<ButtonProps & WordButtonProps> = (props) => {
             '0%': { right: '100%', opacity: 0, backgroundColor: 'white' },
             '10%': { opacity: 0 },
             '20%': { opacity: 0.75 },
-            '100%': { right: '2px', opacity: 1, backgroundColor: 'correctWordBackground' }
+            '100%': { right: '2px', opacity: 1, backgroundColor: 'wordCorrectBg' }
           },
           '@keyframes turn-green': {
-            '0%': { backgroundColor: 'buttonBackground' },
-            '100%': { backgroundColor: 'correctWordBackground' }
+            '0%': { backgroundColor: 'buttonBg' },
+            '100%': { backgroundColor: 'wordCorrectBg' }
           },
           '.front': {
             position: 'relative',
@@ -62,7 +62,7 @@ const WordButton: FC<ButtonProps & WordButtonProps> = (props) => {
             }
           }
         },
-        '--border-color': props.children ? variantStyles?.border : theme.colors.emptyButtonBorder,
+        '--border-color': props.children ? variantStyles?.border : theme.colors.buttonBorderEmpty,
         '--background-color': variantStyles?.background
       }}
       {...props}

@@ -1,38 +1,34 @@
-@use 'sass:color';
+@use "sass:color";
 
 @font-face {
-  font-family: 'Work Sans';
-  src: url('/font/WorkSans-Subset.woff2') format('woff2');
+  font-family: "Work Sans";
+  src: url("/font/WorkSans-Subset.woff2") format("woff2");
   font-style: normal;
   font-weight: 1 999;
   font-display: swap;
 }
 
-$accent-color: #5ea6ac;
-$background-color: #1a1b1b;
+$color-accent: #5ea6ac;
+$color-bg: #1a1b1b;
 
 :root {
-  --background-color: #{$background-color};
-  --accent-color: #{$accent-color};
-  --text-color-accent: #{color.scale($accent-color, $lightness: 40%, $saturation: 25%)};
-  --info-color: #eee;
-  --button-border-color: #{color.scale($accent-color, $saturation: -80%)};
-  --button-border-color-highlight: #{color.scale($accent-color, $lightness: 75%)};
-  --button-background-color: #{color.scale($background-color, $lightness: 6%)};
-  --empty-button-border-color: #{color.scale($accent-color, $lightness: -40%, $saturation: -80%)};
-  --logo-accent-color: #ffc0cb;
-
-  --life-color: #ff93a5;
-  --life-used-color: #525252;
-
-  --correct-word-border-color: #72d672;
-  --correct-word-background-color: #244224;
-  
-  --incorrect-word-border-color: #e08383;
-  --incorrect-word-background-color: #471f1f;
-
-  --missed-word-border-color: #9797fd;
-  --missed-word-background-color: #2e2e6b;
+  --color-accent: #{$color-accent};
+  --color-bg: #{$color-bg};
+  --color-text-accent: #{color.scale($color-accent, $lightness: 40%, $saturation: 25%)};
+  --color-button-border: #{color.scale($color-accent, $saturation: -80%)};
+  --color-button-border-highlight: #{color.scale($color-accent, $lightness: 75%)};
+  --color-button-border-empty: #{color.scale($color-accent, $lightness: -40%, $saturation: -80%)};
+  --color-button-bg: #{color.scale($color-bg, $lightness: 6%)};
+  --color-info: #eee;
+  --color-logo-accent: #ffc0cb;
+  --color-life: #ff93a5;
+  --color-life-used: #525252;
+  --color-word-correct-border: #72d672;
+  --color-word-correct-bg: #244224;
+  --color-word-incorrect-border: #e08383;
+  --color-word-incorrect-bg: #471f1f;
+  --color-word-missed-border: #9797fd;
+  --color-word-missed-bg: #2e2e6b;
 }
 
 html,
@@ -40,11 +36,11 @@ body {
   padding: 0.5rem;
   margin: 0;
   font-family: 'Work Sans', sans-serif;
-  background-color: var(--background-color);
+  background-color: var(--color-bg);
   color: white;
 }
 
-p, ul, h1, h2, h3, h4, h5, h6 { 
+p, ul, h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
@@ -65,8 +61,12 @@ button {
 }
 
 @keyframes fade-in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes enter {
@@ -84,9 +84,10 @@ button {
   from {
     opacity: 1;
     transform: none;
-  } to {
+  }
+  to {
     opacity: 0;
-    transform: translateX(-60px);  
+    transform: translateX(-60px);
   }
 }
 
@@ -94,7 +95,8 @@ button {
   from {
     opacity: 1;
     top: 0;
-  } to {
+  }
+  to {
     opacity: 0;
     top: 15px;
   }

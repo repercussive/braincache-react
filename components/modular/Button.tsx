@@ -9,7 +9,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(props,
     <button
       sx={{
         '--border-color': theme.colors.buttonBorder,
-        '--background-color': theme.colors.buttonBackground,
+        '--background-color': theme.colors.buttonBg,
         cursor: 'pointer',
         userSelect: 'none',
         padding: 0,
