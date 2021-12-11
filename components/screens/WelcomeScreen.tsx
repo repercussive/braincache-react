@@ -6,7 +6,7 @@ import Button from 'components/modular/Button'
 import Flex from 'components/modular/Flex'
 import Spacer from 'components/modular/Spacer'
 import FadeIn from 'components/modular/FadeIn'
-import ScoreDisplay from 'components/modular/ScoreDisplay'
+import LabelledScore from 'components/modular/LabelledScore'
 
 const WelcomeScreen = () => {
   const { setScreen } = screenHandler
@@ -46,10 +46,7 @@ const HighScoreSection = () => {
   const { highScore } = highScoreHandler
 
   return (
-    <Flex center asSpan>
-      Your best score:{' '}
-      <ScoreDisplay score={highScore} />
-    </Flex>
+    <LabelledScore label="Your best score:" score={highScore} />
   )
 }
 

@@ -2,8 +2,7 @@ import highScoreHandler from '@/logic/app/HighScoreHandler'
 import screenHandler from '@/logic/app/ScreenHandler'
 import Button from 'components/modular/Button'
 import FadeIn from 'components/modular/FadeIn'
-import Flex from 'components/modular/Flex'
-import ScoreDisplay from 'components/modular/ScoreDisplay'
+import LabelledScore from 'components/modular/LabelledScore'
 import Spacer from 'components/modular/Spacer'
 import StyledContainer from 'components/modular/StyledContainer'
 import ViewportCentered from 'components/modular/ViewportCentered'
@@ -36,10 +35,10 @@ const ScoreSection = () => {
   const isHighScore = mostRecentScore >= highScore
 
   return (
-    <Flex center asSpan>
-      {isHighScore ? 'High score!' : 'Your score:'}{' '}
-      <ScoreDisplay score={mostRecentScore} />
-    </Flex>
+    <LabelledScore
+      label={isHighScore ? 'High score!' : 'Your score:'}
+      score={mostRecentScore}
+    />
   )
 }
 
