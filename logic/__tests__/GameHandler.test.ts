@@ -15,6 +15,10 @@ describe('initial state', () => {
   test('game starts with 3 lives', () => {
     expect(game.lives).toEqual(3)
   })
+
+  test('game starts with a score of 0', () => {
+    expect(game.score).toEqual(0)
+  })
 })
 
 describe('generateLevel()', () => {
